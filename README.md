@@ -22,120 +22,102 @@ STEP 7: Use cross tabulation method to quantitatively analyze the relationship b
 
 STEP 8: Use heatmap method of representation to show relationships between two variables, one plotted on each axis.
 
-## CODING AND OUTPUT
+# CODING AND OUTPUT
 
-## NAME: SUDHAKARAN S
+
+## NAME: Sudhakaran S
 ## REG.NO: 212222220051
+
 ```
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns 
-df=pd.read_csv("titanic_dataset.csv")
+import seaborn as sns
+df = pd.read_csv("titanic_dataset.csv")
 df
 ```
-![Screenshot 2024-09-10 161359](https://github.com/user-attachments/assets/a19ac75f-2598-4a78-8028-f51d3d167448)
+![image](https://github.com/user-attachments/assets/3c66ec6d-134a-4e0d-a94b-eb9dea4f43b2)
 ```
 df.info()
 ```
-![Screenshot 2024-09-10 161542](https://github.com/user-attachments/assets/a4cff9be-b822-44d9-b860-b93958c6f46d)
+![image](https://github.com/user-attachments/assets/fb4cf6f4-c35a-4b62-b2c1-9104f4202c05)
 ```
 df.shape
 ```
-![Screenshot 2024-09-10 161630](https://github.com/user-attachments/assets/1d5d6409-28ad-4170-8c4e-9ca136fbf975)
+![image](https://github.com/user-attachments/assets/9a9e5874-ad91-414b-881e-b8d07f139590)
 ```
 df.set_index("PassengerId",inplace=True)
-df.describe()
-```
-![Screenshot 2024-09-10 161715](https://github.com/user-attachments/assets/7517f446-2232-4354-bacf-3588627c9681)
-```
-df.shape
-```
-![Screenshot 2024-09-10 161804](https://github.com/user-attachments/assets/099f3b28-ff0e-4562-bfa6-29ee683d390a)
-## Categorical data analysis
-```
 df.nunique()
 ```
-![Screenshot 2024-09-10 161843](https://github.com/user-attachments/assets/9161a28b-ab1e-44fe-8e83-7d86420102ae)
+![image](https://github.com/user-attachments/assets/1bb2d857-04ae-4eb8-a0f1-8ed24716d040)
+
 ```
 df["Survived"].value_counts()
 ```
-![Screenshot 2024-09-10 161933](https://github.com/user-attachments/assets/079c8360-d6f2-4aae-8b90-fd4f5117d925)
+![image](https://github.com/user-attachments/assets/e2543846-bd5a-40b5-b784-ad5689f40296)
 ```
-per=(df["Survived"].value_counts()/df.shape[0]*100).round(2)
+per = (df["Survived"].value_counts()/df.shape[0]*100).round(2)
 per
 ```
-![Screenshot 2024-09-10 162010](https://github.com/user-attachments/assets/4465d3e3-aa63-4aec-9811-5cdae6578329)
+![image](https://github.com/user-attachments/assets/85a175e1-d224-4255-913b-5911f12c0568)
+```
+df.describe()
+```
+![image](https://github.com/user-attachments/assets/e2293b35-61d9-416f-9ced-96e5bfadbfe5)
 ```
 sns.countplot(data=df,x="Survived")
 ```
-![Screenshot 2024-09-10 162047](https://github.com/user-attachments/assets/c0cf2836-37f2-4375-8c23-4683bb745434)
-```
-df
-```
-![Screenshot 2024-09-10 193049](https://github.com/user-attachments/assets/21973863-d4ef-4d5f-8b3e-b9a8bf6d6ac2)
+![image](https://github.com/user-attachments/assets/6bbdf269-7ce1-4fdf-a904-00dc5b4c43a8)
 ```
 df.Pclass.unique()
 ```
-![Screenshot 2024-09-10 193155](https://github.com/user-attachments/assets/f885d8c6-8853-4b1a-8e78-7f6067cb479c)
+![image](https://github.com/user-attachments/assets/644f2a7a-d19c-4642-a34b-cd038203b1ef)
 ```
 df.rename(columns={'Sex':'Gender'},inplace=True)
 df
 ```
-![Screenshot 2024-09-10 193247](https://github.com/user-attachments/assets/3d3614e7-1832-4802-8fca-d70a86df9369)
-## Bivariate Analysis
+![image](https://github.com/user-attachments/assets/fdf41756-2cc6-48cf-a58d-afc519068b07)
 ```
 sns.catplot(x="Gender",col="Survived",kind="count",data=df,height=5,aspect=.7)
 ```
-![Screenshot 2024-09-10 193339](https://github.com/user-attachments/assets/c8b44162-3a88-431b-b21f-29b467e3ecbc)
+![image](https://github.com/user-attachments/assets/d393e3c2-0c25-4e39-a5a2-578da857059f)
 ```
-sns.catplot(x="Survived",hue="Gender",data=df,kind="count")
+sns.catplot(x='Survived',hue="Gender",data=df,kind="count")
 ```
-![Screenshot 2024-09-10 193448](https://github.com/user-attachments/assets/3abf2cac-ad2d-416d-8fa4-b6323a2b08fd)
+![image](https://github.com/user-attachments/assets/c4efbc88-19f2-44e8-8e11-d6f44c42d67c)
 ```
 df.boxplot(column="Age",by="Survived")
 ```
-![Screenshot 2024-09-10 193540](https://github.com/user-attachments/assets/42095543-8ea8-44cd-bb87-00896d5d65ae)
+![image](https://github.com/user-attachments/assets/9049e7e7-0fe3-4bc7-927d-321dfb43a683)
 ```
 sns.scatterplot(x=df["Age"],y=df["Fare"])
 ```
-![Screenshot 2024-09-10 193633](https://github.com/user-attachments/assets/be003743-cb0f-40df-b419-167c37da8b0e)
+![image](https://github.com/user-attachments/assets/583e8977-68e4-496f-9baa-edc3cc0eff55)
 ```
 sns.jointplot(x="Age",y="Fare",data=df)
 ```
-![Screenshot 2024-09-10 193736](https://github.com/user-attachments/assets/9bc1238d-accf-4719-b6bc-f0d22508491e)
-## Multivariate Analysis
+![image](https://github.com/user-attachments/assets/a6b61a4c-a5f9-4bdb-92ec-b72efc07fb2e)
 ```
-fig, ax1 = plt.subplots(figsize=(8,5))
-plt = sns.boxplot(ax=ax1,x='Pclass',y='Age',hue='Gender',data=df)
+fig,ax1 = plt.subplots(figsize=(8,5))
+pt = sns.boxplot(ax=ax1,x='Pclass',y='Age',hue='Gender',data=df)
 ```
-![image](https://github.com/user-attachments/assets/e8ae7471-ddf7-43f6-a837-e2fe2a51f3f0)
+![image](https://github.com/user-attachments/assets/82814afe-4561-4839-8398-f6d8f7e88271)
 ```
 sns.catplot(data=df,col="Survived",x="Gender",hue="Pclass",kind="count")
-
 ```
-![Screenshot 2024-09-10 194235](https://github.com/user-attachments/assets/3342116c-1702-434a-aadd-994dfc55974b)
-## Co-relation
-
+![image](https://github.com/user-attachments/assets/2a77e6cd-cf3e-4db2-bf6e-a3fc6c30e44a)
 ```
-corr=df.corr()
+numeric_dt = df.select_dtypes(include=['number'])
+corr = numeric_dt.corr()
 sns.heatmap(corr,annot=True)
 ```
-![Screenshot 2024-09-10 194336](https://github.com/user-attachments/assets/c2a9c49e-efb9-4232-900a-936c347ab084)
+![Screenshot 2024-09-03 100630](https://github.com/user-attachments/assets/902bcf8f-2a1b-4b8d-b6ad-42ce366b454a)
+
 ```
 sns.pairplot(df)
 ```
-![Screenshot 2024-09-10 194444](https://github.com/user-attachments/assets/c8a2e266-a4d2-4929-b52b-bf8109d5edd4)
-
-
-
-
-
-
-
-
+![Screenshot 2024-09-01 113054](https://github.com/user-attachments/assets/e2cc50ce-51fe-447d-82cf-30043bbb9fd5)
+![Screenshot 2024-09-01 113147](https://github.com/user-attachments/assets/c0770c1a-2d92-481e-b5d3-7b5dd3204115)
 
 # RESULT
-
-Exploratory Data Analysis on the given data set successfully.
-
+Thus the data analysis has been implemented succesfully.
