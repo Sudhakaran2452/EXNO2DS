@@ -1,4 +1,5 @@
 # Exno:2 EDA Analysis using Python
+
 # AIM:
 To perform Exploratory Data Analysis on the given data set.
       
@@ -23,9 +24,6 @@ STEP 7: Use cross tabulation method to quantitatively analyze the relationship b
 STEP 8: Use heatmap method of representation to show relationships between two variables, one plotted on each axis.
 
 # CODING AND OUTPUT
-
-## NAME: Sudhakaran S
-## REG.NO: 212222220051
 ```
 import pandas as pd
 import numpy as np
